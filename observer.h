@@ -4,8 +4,8 @@
 class Observer
 {
 protected:
-    Observer() {}
-    virtual ~Observer() = 0;
+    Observer() = default;
+    virtual ~Observer() = default;
 public:
     virtual void update(double temp, double humidity, double pressure) = 0;
 };

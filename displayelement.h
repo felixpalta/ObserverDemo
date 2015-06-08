@@ -4,8 +4,8 @@
 class DisplayElement
 {
 protected:
-    DisplayElement() {}
-    virtual ~DisplayElement() = 0;
+    DisplayElement() = default;
+    virtual ~DisplayElement() = default;
 public:
     virtual void display() const = 0;
 };

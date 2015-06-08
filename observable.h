@@ -6,11 +6,12 @@
 class Observable
 {
 protected:
-    Observable() {}
-    virtual ~Observable() = 0;
+    Observable() = default;
+    virtual ~Observable() = default;
 public:
     virtual void register_observer(Observer *o) = 0;
     virtual void remove_observer(Observer *o) = 0;
+private:
     virtual void notify_observers() = 0;
 };
 

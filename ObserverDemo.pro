@@ -3,7 +3,8 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    weatherdata.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -11,7 +12,8 @@ qtcAddDeployment()
 HEADERS += \
     observable.h \
     observer.h \
-    displayelement.h
+    displayelement.h \
+    weatherdata.h
 
 *g++*{
 QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
