@@ -35,13 +35,13 @@ void WeatherData::remove_observer(Observer *o)
     impl->observers.remove(o);
 }
 
-void WeatherData::notify_observers()
+void WeatherData::notify_observers() const
 {
     for (auto &x : impl->observers)
         x->update(impl->temperature, impl->humidity, impl->pressure);
 }
 
-void WeatherData::measurements_changed()
+void WeatherData::measurements_changed() const
 {
     notify_observers();
 }

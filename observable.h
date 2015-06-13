@@ -12,7 +12,7 @@ public:
     virtual void register_observer(Observer *o) = 0;
     virtual void remove_observer(Observer *o) = 0;
 private:
-    virtual void notify_observers() = 0;
+    virtual void notify_observers() const = 0;
 };
 
 #endif // OBSERVABLE_H

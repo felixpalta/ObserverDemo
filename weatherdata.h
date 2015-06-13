@@ -21,9 +21,9 @@ private:
 
     // This funcion is called every
     // time new measurements are available.
-    void measurements_changed();
+    void measurements_changed() const;
 
-    virtual void notify_observers();
+    virtual void notify_observers() const;
 
 private:
     struct WeatherImpl;
