@@ -7,6 +7,11 @@ CurrentConditions::CurrentConditions(Observable &subj)
     _subject->register_observer(this);
 }
 
+CurrentConditions::~CurrentConditions()
+{
+    _subject->remove_observer(this);
+}
+
 void CurrentConditions::update(double temp, double humidity, double)
 {
     this->_temperature = temp;

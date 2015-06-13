@@ -9,7 +9,7 @@ class CurrentConditions : public Observer, DisplayElement
 {
 public:
     CurrentConditions(Observable& subj);
-    ~CurrentConditions() = default;
+    ~CurrentConditions();
     CurrentConditions(const CurrentConditions&) = delete;
     CurrentConditions& operator=(const CurrentConditions&) = delete;
 

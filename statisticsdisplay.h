@@ -9,7 +9,7 @@ class StatisticsDisplay : public Observer, DisplayElement
 {
 public:
     StatisticsDisplay(Observable& subj);
-    ~StatisticsDisplay() = default;
+    ~StatisticsDisplay();
     StatisticsDisplay(const StatisticsDisplay&) = delete;
     StatisticsDisplay& operator=(const StatisticsDisplay&) = delete;
 

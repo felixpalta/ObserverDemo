@@ -12,6 +12,11 @@ StatisticsDisplay::StatisticsDisplay(Observable& subj)
     _subject->register_observer(this);
 }
 
+StatisticsDisplay::~StatisticsDisplay()
+{
+    _subject->remove_observer(this);
+}
+
 void StatisticsDisplay::update(double temp, double, double)
 {
     _sum_temp += temp;
