@@ -2,6 +2,7 @@
 #include "weatherdata.h"
 #include "currentconditions.h"
 #include "statisticsdisplay.h"
+#include "forecastdisplay.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ int main()
     // in their destructors.
     auto cond = new CurrentConditions(w);
     auto stats = new StatisticsDisplay(w);
+    auto forecast = new ForecastDisplay(w);
 
     w.set_measurements(34, 50, 120); // Changes in the Subject are pushed as notifications to the Observers.
     w.set_measurements(12, 34, 126);
@@ -21,6 +23,7 @@ int main()
 
     delete cond;
     delete stats;
+    delete forecast;
 
     w.set_measurements(0,0,12);
     return 0;

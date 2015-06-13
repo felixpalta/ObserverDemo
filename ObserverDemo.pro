@@ -6,7 +6,8 @@ CONFIG -= qt
 SOURCES += main.cpp \
     weatherdata.cpp \
     currentconditions.cpp \
-    statisticsdisplay.cpp
+    statisticsdisplay.cpp \
+    forecastdisplay.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -17,7 +18,8 @@ HEADERS += \
     displayelement.h \
     weatherdata.h \
     currentconditions.h \
-    statisticsdisplay.h
+    statisticsdisplay.h \
+    forecastdisplay.h
 
 *g++*{
 QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
