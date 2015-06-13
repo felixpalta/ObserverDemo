@@ -13,7 +13,7 @@ public:
     ForecastDisplay(const ForecastDisplay&) = delete;
     ForecastDisplay& operator=(const ForecastDisplay&) = delete;
 
-    void update(double, double, double pressure);
+    void update(const Observable*);
     void display() const;
 
 private:

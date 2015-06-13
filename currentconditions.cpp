@@ -1,4 +1,5 @@
- #include "currentconditions.h"
+#include "currentconditions.h"
+#include "weatherdata.h"
 #include <iostream>
 
 CurrentConditions::CurrentConditions(Observable &subj)
@@ -12,11 +13,15 @@ CurrentConditions::~CurrentConditions()
     _subject->remove_observer(this);
 }
 
-void CurrentConditions::update(double temp, double humidity, double)
+void CurrentConditions::update(const Observable *subj)
 {
-    this->_temperature = temp;
-    this->_humidity = humidity;
-    display(); // For simplicity we call display right after receiveing new data.
+    const WeatherData *w = dynamic_cast<const WeatherData*>(subj);
+    if (w != nullptr)
+    {
+        this->_temperature = w->get_temperature();
+        this->_humidity = w->get_humidity();
+        display(); // For simplicity we call display right after receiveing new data.
+    }
 }
 
 void CurrentConditions::display() const

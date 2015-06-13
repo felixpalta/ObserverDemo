@@ -17,6 +17,10 @@ public:
     // because this demo cannot get new data anywhere else.
     void set_measurements(double temp, double hum, double press);
 
+    double get_temperature() const;
+    double get_pressure() const;
+    double get_humidity() const;
+
 private:
 
     // This funcion is called every

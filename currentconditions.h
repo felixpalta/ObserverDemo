@@ -13,7 +13,7 @@ public:
     CurrentConditions(const CurrentConditions&) = delete;
     CurrentConditions& operator=(const CurrentConditions&) = delete;
 
-    void update(double temp, double _humidity, double);
+    void update(const Observable*);
     void display() const;
 
 private:

@@ -38,7 +38,7 @@ void WeatherData::remove_observer(Observer *o)
 void WeatherData::notify_observers() const
 {
     for (auto &x : impl->observers)
-        x->update(impl->temperature, impl->humidity, impl->pressure);
+        x->update(this);
 }
 
 void WeatherData::measurements_changed() const
@@ -53,6 +53,21 @@ void WeatherData::set_measurements(double temp, double hum, double press)
     impl->pressure = press;
     measurements_changed();
 
+}
+
+double WeatherData::get_temperature() const
+{
+    return impl->temperature;
+}
+
+double WeatherData::get_humidity() const
+{
+    return impl->humidity;
+}
+
+double WeatherData::get_pressure() const
+{
+    return impl->pressure;
 }
 
 

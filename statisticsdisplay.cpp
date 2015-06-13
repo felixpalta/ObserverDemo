@@ -1,4 +1,5 @@
 #include "statisticsdisplay.h"
+#include "weatherdata.h"
 #include <iostream>
 using namespace std;
 
@@ -17,18 +18,23 @@ StatisticsDisplay::~StatisticsDisplay()
     _subject->remove_observer(this);
 }
 
-void StatisticsDisplay::update(double temp, double, double)
+void StatisticsDisplay::update(const Observable *subj)
 {
-    _sum_temp += temp;
-    ++_num_readings;
+    const WeatherData *w = dynamic_cast<const WeatherData*>(subj);
+    if ( w != nullptr)
+    {
+        double temp = w->get_temperature();
+        _sum_temp += temp;
+        ++_num_readings;
 
-    if (temp > _max_temp)
-        _max_temp = temp;
+        if (temp > _max_temp)
+            _max_temp = temp;
 
-    if (temp < _min_temp)
-        _min_temp = temp;
+        if (temp < _min_temp)
+            _min_temp = temp;
 
-    display();
+        display();
+    }
 }
 
 void StatisticsDisplay::display() const

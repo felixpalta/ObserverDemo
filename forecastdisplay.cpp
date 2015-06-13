@@ -1,4 +1,5 @@
 #include "forecastdisplay.h"
+#include "weatherdata.h"
 #include <iostream>
 using namespace std;
 
@@ -13,12 +14,15 @@ ForecastDisplay::~ForecastDisplay()
     _subject->remove_observer(this);
 }
 
-void ForecastDisplay::update(double, double,  double pressure)
+void ForecastDisplay::update(const Observable *subj)
 {
-    _last_pressure = _current_pressure;
-    _current_pressure = pressure;
-
-    display();
+    const WeatherData *w = dynamic_cast<const WeatherData*>(subj);
+    if (w != nullptr)
+    {
+        _last_pressure = _current_pressure;
+        _current_pressure = w->get_pressure();
+        display();
+    }
 }
 
 void ForecastDisplay::display() const

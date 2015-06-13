@@ -13,7 +13,7 @@ public:
     StatisticsDisplay(const StatisticsDisplay&) = delete;
     StatisticsDisplay& operator=(const StatisticsDisplay&) = delete;
 
-    void update(double temp, double, double);
+    void update(const Observable *);
     void display() const;
 
 private:
